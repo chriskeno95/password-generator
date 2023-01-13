@@ -149,10 +149,11 @@ return
  function getPasswordNumericalOptions(){
   let numericSpecialCharacterOption = prompt("do you want the password to contain Numeric and Special characters? \n Please choose 'yes' (y) for both or 'no' (n), for only numeric characters ");
 if (numericSpecialCharacterOption.toLowerCase() === "yes" || numericSpecialCharacterOption.toLowerCase() === "y"){
-passwordArray2 = numericCharacters.concat(specialCharacters);
+passwordArray2 = numericCharacters.concat(specialCharacters); 
 passwordArray3 = passwordArray1.concat(passwordArray2);
 userPassword = passwordArray3;
 generatePassword();
+//above i am creating the possible combination for passwords and sorting them into different arrays (i need to improve my naming conventions to avoid confusion in the future) --- same as below
 
 
  } else if (numericSpecialCharacterOption.toLowerCase() === "no" || numericSpecialCharacterOption.toLowerCase() === "n"){
@@ -167,6 +168,7 @@ return
  
 
 // Function for getting a random element from an array
+//this allows me to get a singular random element from an array
 function getRandom(arr) {
 
   let randomIndex = Math.floor(Math.random() * arr.length);
@@ -177,6 +179,8 @@ function getRandom(arr) {
 
 
 // Function to generate password with user input
+//here i am creating a forloop within the function to create a string that will hold the generated
+//password. in hindsight i think i should have placed this somewhere else as it made me get a little confused as i was trying to read my code.
 function generatePassword() {
   for (let index = 0; index < passwordSize; index++)
    password += getRandom(userPassword);
@@ -197,12 +201,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-
-//pseudocode for this task
-
-//step 1 - user clicks generate password and are promted if they want to create a password that is 'small', 'medium' or 'large in lenght ---- small = more than 10 but less than 20, medium = more than 20 but less than 45, large = more than 45 but less than 64
-
-//step 2 they are prompted seperately if they want the password to include lowercase, uppercase , numeric, and special characters --- they must accept atleast 1 
-
-//step 3 they will then recieve a generated password within the text box.
