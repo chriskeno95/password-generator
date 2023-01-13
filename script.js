@@ -106,29 +106,44 @@ function getPasswordSize() {
   let userChoice = prompt("please choose a password length: small , medium or large");
   if (userChoice.toLowerCase() === "small"){
     let passwordSize = Math.round(Math.random() * (smallMax - smallMin) + smallMin);
-    prompt(getPasswordOptions())
+    prompt(getPasswordCharacterOptions())
   } else if (userChoice.toLowerCase() === "medium"){
     let passwordSize = Math.round(Math.random() * (mediumMax - mediumMin) + mediumMin);
-    prompt(getPasswordOptions())
+    prompt(getPasswordCharacterOptions())
   } else if (userChoice.toLowerCase() === "large"){
     let passwordSize = Math.round(Math.random() * (largeMax - largeMin) + largeMin);
-    prompt(getPasswordOptions())
+    prompt(getPasswordCharacterOptions())
   } else 
   alert(userChoice + " is not an acceptable password length. Please choose 'small', 'medium', or 'large'")
 }
 
 // function to prompt user to see if they want their password to contain lowercase characters. If they choose yes, the lowercase and upper case arrays will be added to the empty 'passwordArray'.
-function getPasswordOptions(){
-let lowercaseOption = prompt("do you want the password to contain Lowercase and Uppercase characters? Please choose 'yes' (y) or 'no' (n)");
-if (lowercaseOption.toLowerCase() === "yes" || lowercaseOption.toLowerCase() === "y"){
-let passwordArray = upperCasedCharacters.concat(lowerCasedCharacters);
-console.log(passwordArray);
- } else if (lowercaseOption.toLowerCase() === "no" || lowercaseOption.toLowerCase() === "n"){let passwordArray = lowerCasedCharacters
-  console.log(passwordArray);
+function getPasswordCharacterOptions(){
+let charachterCaseOption = prompt("do you want the password to contain Lowercase and Uppercase characters? Please choose 'yes' (y) for both, or 'no' (n) for only one");
+if (charachterCaseOption.toLowerCase() === "yes" || charachterCaseOption.toLowerCase() === "y"){
+passwordArray = upperCasedCharacters.concat(lowerCasedCharacters);
+prompt(getPasswordNumericalOptions())
+ } else if (charachterCaseOption.toLowerCase() === "no" || charachterCaseOption.toLowerCase() === "n"){passwordArray = lowerCasedCharacters
+  prompt(getPasswordNumericalOptions())
 } else 
-alert(lowercaseOption + " is not recognised. Please choose 'yes' (y) or 'no'. (n)")
-getPasswordOptions();
+alert(charachterCaseOption + " is not recognised. Please choose 'yes' (y) or 'no'. (n)");
+
 }
+
+//function to prompt user to see if they want to include numerical characters to their password or not
+ function getPasswordNumericalOptions(){
+  let numericSpecialCharacterOption = prompt("do you want the password to contain Numeric and Special characters? Please choose 'yes' (y) for both or 'no' (n), for only one");
+if (numericSpecialCharacterOption.toLowerCase() === "yes" || numericSpecialCharacterOption.toLowerCase() === "y"){
+passwordArray += numericCharacters + specialCharacters;
+console.log(passwordArray)
+ } else if (numericSpecialCharacterOption.toLowerCase() === "no" || numericSpecialCharacterOption.toLowerCase() === "n"){
+  passwordArray += numericCharacters;
+  console.log(passwordArray)
+} else 
+alert(numericSpecialCharacterOption + " is not recognised. Please choose 'yes' (y) or 'no'. (n)");
+}
+
+ 
 
 // Function for getting a random element from an array
 function getRandom(arr) {
