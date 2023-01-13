@@ -87,7 +87,7 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
-
+let passwordSize = 0
 let smallMin = 10;
 let smallMax = 20;
 let mediumMin = 20;
@@ -95,22 +95,32 @@ let mediumMax = 45;
 let largeMin = 45;
 let largeMax = 64;
 
-// Function to prompt user for password options
-function getPasswordOptions() {
+// Function to prompt user for password size
+function getPasswordSize() {
   let userChoice = prompt("please choose a password length: small , medium or large");
   if (userChoice.toLowerCase() === "small"){
     let passwordSize = Math.round(Math.random() * (smallMax - smallMin) + smallMin);
-    console.log(passwordSize)
+    prompt(getPasswordOptions())
   } else if (userChoice.toLowerCase() === "medium"){
     let passwordSize = Math.round(Math.random() * (mediumMax - mediumMin) + mediumMin);
-    console.log(passwordSize)
+    prompt(getPasswordOptions())
   } else if (userChoice.toLowerCase() === "large"){
     let passwordSize = Math.round(Math.random() * (largeMax - largeMin) + largeMin);
-    console.log(passwordSize)
+    prompt(getPasswordOptions())
   } else 
   alert(userChoice + " is not an acceptable password length. Please choose 'small', 'medium', or 'large'")
 }
 
+// function to prompt user to see if they want their password to contain lowercase characters
+function getPasswordOptions(){
+let lowercaseOption = prompt("do you want the password to contain Lowercase characters? Please choose 'yes' (y) or 'no' (n)");
+if (lowercaseOption.toLowerCase === "yes" || lowercaseOption.toLowerCase === "y"){
+console.log("yes")
+ } else if (lowercaseOption.toLowerCase === "no" || lowercaseOption.toLowerCase === "n"){
+console.log("no")
+} else 
+alert(lowercaseOption + " is not recognised. Please choose 'yes' (y) or 'no. (n)")
+}
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -134,7 +144,7 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', getPasswordOptions);
+generateBtn.addEventListener('click', getPasswordSize);
 
 
 //pseudocode for this task
