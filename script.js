@@ -117,12 +117,14 @@ function getPasswordSize() {
   alert(userChoice + " is not an acceptable password length. Please choose 'small', 'medium', or 'large'")
 }
 
-// function to prompt user to see if they want their password to contain lowercase characters
+// function to prompt user to see if they want their password to contain lowercase characters. If they choose yes, the lowercase and upper case arrays will be added to the empty 'passwordArray'.
 function getPasswordOptions(){
-let lowercaseOption = prompt("do you want the password to contain Lowercase characters? Please choose 'yes' (y) or 'no' (n)");
+let lowercaseOption = prompt("do you want the password to contain Lowercase and Uppercase characters? Please choose 'yes' (y) or 'no' (n)");
 if (lowercaseOption.toLowerCase() === "yes" || lowercaseOption.toLowerCase() === "y"){
-let lowerCase = true;
- } else if (lowercaseOption.toLowerCase() === "no" || lowercaseOption.toLowerCase() === "n"){let lowerCase = false;
+let passwordArray = upperCasedCharacters.concat(lowerCasedCharacters);
+console.log(passwordArray);
+ } else if (lowercaseOption.toLowerCase() === "no" || lowercaseOption.toLowerCase() === "n"){let passwordArray = lowerCasedCharacters
+  console.log(passwordArray);
 } else 
 alert(lowercaseOption + " is not recognised. Please choose 'yes' (y) or 'no'. (n)")
 getPasswordOptions();
