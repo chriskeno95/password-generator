@@ -87,15 +87,21 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
+// creating an empty array in which i will pass data into if the user chooses certain options.
+let passwordArray = []
+
+// setting password size as zero as this will have its value randomly set later 
 let passwordSize = 0
+//creating password length parameters.
 let smallMin = 10;
 let smallMax = 20;
 let mediumMin = 20;
 let mediumMax = 45;
 let largeMin = 45;
 let largeMax = 64;
+let lowerCase;
 
-// Function to prompt user for password size
+// Function to prompt user for password size that will be randomly set using math.random and setting  min-max intergers
 function getPasswordSize() {
   let userChoice = prompt("please choose a password length: small , medium or large");
   if (userChoice.toLowerCase() === "small"){
@@ -114,12 +120,12 @@ function getPasswordSize() {
 // function to prompt user to see if they want their password to contain lowercase characters
 function getPasswordOptions(){
 let lowercaseOption = prompt("do you want the password to contain Lowercase characters? Please choose 'yes' (y) or 'no' (n)");
-if (lowercaseOption.toLowerCase === "yes" || lowercaseOption.toLowerCase === "y"){
-console.log("yes")
- } else if (lowercaseOption.toLowerCase === "no" || lowercaseOption.toLowerCase === "n"){
-console.log("no")
+if (lowercaseOption.toLowerCase() === "yes" || lowercaseOption.toLowerCase() === "y"){
+let lowerCase = true;
+ } else if (lowercaseOption.toLowerCase() === "no" || lowercaseOption.toLowerCase() === "n"){let lowerCase = false;
 } else 
-alert(lowercaseOption + " is not recognised. Please choose 'yes' (y) or 'no. (n)")
+alert(lowercaseOption + " is not recognised. Please choose 'yes' (y) or 'no'. (n)")
+getPasswordOptions();
 }
 
 // Function for getting a random element from an array
