@@ -25,7 +25,7 @@ I also had to rework some of the starter code in this project as i got confused 
 
 ## Installation
 
-No need to install anything to view this project; you can view it [here]()
+No need to install anything to view this project; you can view it [here](https://chriskeno95.github.io/password-generator/)
 
 ## Screenshots
 
