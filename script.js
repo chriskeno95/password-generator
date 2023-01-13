@@ -88,16 +88,28 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+let smallMin = 10;
+let smallMax = 20;
+let mediumMin = 20;
+let mediumMax = 45;
+let largeMin = 45;
+let largeMax = 64;
 
 // Function to prompt user for password options
 function getPasswordOptions() {
   let userChoice = prompt("please choose a password length: small , medium or large");
-  if (userChoice === "small"){
-    let passwordSize = (Math.floor(Math.random()*(20-10+1))+10);
+  if (userChoice.toLowerCase() === "small"){
+    let passwordSize = Math.round(Math.random() * (smallMax - smallMin) + smallMin);
     console.log(passwordSize)
-  }
+  } else if (userChoice.toLowerCase() === "medium"){
+    let passwordSize = Math.round(Math.random() * (mediumMax - mediumMin) + mediumMin);
+    console.log(passwordSize)
+  } else if (userChoice.toLowerCase() === "large"){
+    let passwordSize = Math.round(Math.random() * (largeMax - largeMin) + largeMin);
+    console.log(passwordSize)
+  } else 
+  alert(userChoice + " is not an acceptable password length. Please choose 'small', 'medium', or 'large'")
 }
-
 
 
 // Function for getting a random element from an array
