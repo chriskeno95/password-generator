@@ -111,13 +111,13 @@ function getPasswordSize() {
   let userChoice = prompt("please choose a password length: small , medium or large");
   if (userChoice.toLowerCase() === "small"){
     passwordSize = Math.round(Math.random() * (smallMax - smallMin) + smallMin);
-    prompt(getPasswordCharacterOptions())
+    getPasswordCharacterOptions()
   } else if (userChoice.toLowerCase() === "medium"){
     passwordSize = Math.round(Math.random() * (mediumMax - mediumMin) + mediumMin);
-    prompt(getPasswordCharacterOptions())
+    getPasswordCharacterOptions()
   } else if (userChoice.toLowerCase() === "large"){
     passwordSize = Math.round(Math.random() * (largeMax - largeMin) + largeMin);
-    prompt(getPasswordCharacterOptions())
+    getPasswordCharacterOptions()
   } else 
   alert(userChoice + " is not an acceptable password length. Please choose 'small', 'medium', or 'large'")
   return
@@ -125,12 +125,12 @@ function getPasswordSize() {
 
 // function to prompt user to see if they want their password to contain lowercase characters. If they choose yes, the lowercase and upper case arrays will be added to the empty 'passwordArray'.
 function getPasswordCharacterOptions(){
-let charachterCaseOption = prompt("do you want the password to contain Lowercase and Uppercase characters? Please choose 'yes' (y) for both, or 'no' (n) for only one");
+let charachterCaseOption = prompt("do you want the password to contain Lowercase and Uppercase characters? Please choose 'yes' (y) for both, or 'no' (n) for only lowercase");
 if (charachterCaseOption.toLowerCase() === "yes" || charachterCaseOption.toLowerCase() === "y"){
 passwordArray1 = upperCasedCharacters.concat(lowerCasedCharacters);
-prompt(getPasswordNumericalOptions())
+getPasswordNumericalOptions()
  } else if (charachterCaseOption.toLowerCase() === "no" || charachterCaseOption.toLowerCase() === "n"){passwordArray1 = lowerCasedCharacters
-  prompt(getPasswordNumericalOptions())
+getPasswordNumericalOptions()
 } else 
 alert(charachterCaseOption + " is not recognised. Please choose 'yes' (y) or 'no'. (n)");
 return
@@ -138,7 +138,7 @@ return
 
 //function to prompt user to see if they want to include numerical characters to their password or not. if yes, then both the numeric and special character arrays will be added to the 'passwordArray' as the content it holds at this point.
  function getPasswordNumericalOptions(){
-  let numericSpecialCharacterOption = prompt("do you want the password to contain Numeric and Special characters? Please choose 'yes' (y) for both or 'no' (n), for only one");
+  let numericSpecialCharacterOption = prompt("do you want the password to contain Numeric and Special characters? Please choose 'yes' (y) for both or 'no' (n), for only numeric characters ");
 if (numericSpecialCharacterOption.toLowerCase() === "yes" || numericSpecialCharacterOption.toLowerCase() === "y"){
 passwordArray2 = numericCharacters.concat(specialCharacters);
 passwordArray3 = passwordArray1.concat(passwordArray2);
@@ -171,7 +171,8 @@ function getRandom(arr) {
 function generatePassword() {
   for (let index = 0; index < passwordSize; index++)
    password += getRandom(userPassword);
-   alert("this is your generated password: " + password);
+   //alert("this is your generated password: " + password);
+   key = password
 }
 
 // Get references to the #generate element
@@ -179,14 +180,14 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  password = getPasswordSize();
   var passwordText = document.querySelector('#password');
 
-  passwordText.value = password;
+  passwordText.value = key;
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', getPasswordSize);
+generateBtn.addEventListener('click', writePassword);
 
 
 //pseudocode for this task
